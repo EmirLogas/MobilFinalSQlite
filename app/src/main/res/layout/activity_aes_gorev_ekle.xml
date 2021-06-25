@@ -20,26 +20,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/aes_GorevEkle_EditTxt_GorevText"
         android:layout_width="350sp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="Görev"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/textView4"
@@ -48,19 +38,19 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:text="Önem Derecesi :"
-        app:layout_constraintBottom_toBottomOf="@+id/spinner"
-        app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toTopOf="@+id/spinner" />
+        app:layout_constraintBottom_toBottomOf="@+id/aes_GorevEkle_spinner_derece"
+        app:layout_constraintEnd_toStartOf="@+id/aes_GorevEkle_spinner_derece"
+        app:layout_constraintTop_toTopOf="@+id/aes_GorevEkle_spinner_derece" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/aes_GorevEkle_spinner_derece"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:entries="@array/önem_derecesi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/aes_GorevEkle_EditTxt_GorevText" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -69,28 +59,29 @@
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner">
+        app:layout_constraintTop_toBottomOf="@+id/aes_GorevEkle_spinner_derece">
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/aes_GorevEkle_DadioBtn_Hatirlat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hatırlat" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/aes_GorevEkle_DadioBtn_Hatirlatma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hatırlatma" />
     </RadioGroup>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/aes_GorevEkle_Btn_Ekle"
         android:layout_width="111sp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginBottom="30dp"
+        android:onClick="aes_GorevEkle_Btn_Ekle"
         android:text="Ekle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -108,7 +99,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
-        android:id="@+id/checkBox3"
+        android:id="@+id/aes_GorevEkle_CheckBox_Onayliyorum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -127,5 +118,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
         app:layout_constraintEnd_toStartOf="@+id/radioGroup"
         app:layout_constraintTop_toTopOf="@+id/radioGroup" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="imageView"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:src="@drawable/ic_launcher_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
