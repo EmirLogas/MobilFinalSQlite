@@ -1,15 +1,14 @@
 package com.example.mobilfinalsqlite;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -34,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         aes_Main_ListView = findViewById(R.id.aes_Main_ListView);
         database = aes_GorevEkle.database;
 
-
         try {
             database = openOrCreateDatabase("Gorevler", MODE_PRIVATE, null);
             database.execSQL("CREATE TABLE IF NOT EXISTS Gorevler (resim VARCHAR,gorev VARCHAR, onemDerecesi INTEGER, hatirlat INTEGER)");
@@ -55,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Listele() {
-
         Cursor cursor = database.rawQuery("SELECT * FROM Gorevler", null);
 
         int resimIndex = cursor.getColumnIndex("resim");

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="önem_derecesi">
-        <item>1 - Düşük Önem</item>
-        <item>2 - Orta Önem</item>
-        <item>3 - Yüksek Önem</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 </resources>

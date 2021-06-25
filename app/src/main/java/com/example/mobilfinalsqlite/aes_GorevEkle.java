@@ -69,10 +69,10 @@ public class aes_GorevEkle extends AppCompatActivity {
 
         gorev = aes_GorevEkle_EditTxt_GorevText.getText().toString();
         onemDerecesi = Integer.parseInt(aes_GorevEkle_spinner_derece.getSelectedItem().toString());
-        if (aes_GorevEkle_DadioBtn_Hatirlat.isSelected()) {
+        if (aes_GorevEkle_DadioBtn_Hatirlat.isChecked()) {
             hatirlat = 1;
         }
-        if (aes_GorevEkle_DadioBtn_Hatirlatma.isSelected()) {
+        else if (aes_GorevEkle_DadioBtn_Hatirlatma.isChecked()) {
             hatirlat = 0;
         }
 
@@ -82,7 +82,8 @@ public class aes_GorevEkle extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        Intent MainActivity = new Intent(this, MainActivity.class);
+        startActivity(MainActivity);
     }
 
     public void imageView(View view) {
