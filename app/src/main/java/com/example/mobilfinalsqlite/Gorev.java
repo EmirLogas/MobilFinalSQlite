@@ -1,14 +1,25 @@
 package com.example.mobilfinalsqlite;
 
 public class Gorev {
+    String resim;
     String gorev;
     int onemDerecesi;
     int hatirlat;
 
-    public Gorev(String gorev, int onemDerecesi, int hatirlat) {
+
+    public Gorev(String resim, String gorev, int onemDerecesi, int hatirlat) {
+        this.resim = resim;
         this.gorev = gorev;
         this.onemDerecesi = onemDerecesi;
         this.hatirlat = hatirlat;
+    }
+
+    public String getResim() {
+        return resim;
+    }
+
+    public void setResim(String resim) {
+        this.resim = resim;
     }
 
     public String getGorev() {

@@ -35,11 +35,11 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:text="Önem Derecesi :"
         app:layout_constraintBottom_toBottomOf="@+id/aes_GorevEkle_spinner_derece"
-        app:layout_constraintEnd_toStartOf="@+id/aes_GorevEkle_spinner_derece"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/aes_GorevEkle_spinner_derece" />
 
     <Spinner
@@ -48,8 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:entries="@array/önem_derecesi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/aes_GorevEkle_EditTxt_GorevText" />
 
     <RadioGroup

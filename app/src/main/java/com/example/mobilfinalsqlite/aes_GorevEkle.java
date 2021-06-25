@@ -6,8 +6,10 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -15,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
 
 public class aes_GorevEkle extends AppCompatActivity {
 
@@ -44,7 +48,7 @@ public class aes_GorevEkle extends AppCompatActivity {
 
         try {
             database = openOrCreateDatabase("Gorevler", MODE_PRIVATE, null);
-            database.execSQL("CREATE TABLE IF NOT EXISTS Gorevler (gorev VARCHAR, onemDerecesi INTEGER, hatirlat INTEGER)");
+            database.execSQL("CREATE TABLE IF NOT EXISTS Gorevler (resim VARCHAR,gorev VARCHAR, onemDerecesi INTEGER, hatirlat INTEGER)");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -56,6 +60,13 @@ public class aes_GorevEkle extends AppCompatActivity {
 
     public void aes_GorevEkle_Btn_Ekle(View view) {
 
+        BitmapDrawable bitmapDrawable = (BitmapDrawable) imageView.getDrawable();
+        Bitmap bitmap = bitmapDrawable.getBitmap();
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] bytes = byteArrayOutputStream.toByteArray();
+        String image = Base64.encodeToString(bytes, Base64.DEFAULT);
+
         gorev = aes_GorevEkle_EditTxt_GorevText.getText().toString();
         onemDerecesi = Integer.parseInt(aes_GorevEkle_spinner_derece.getSelectedItem().toString());
         if (aes_GorevEkle_DadioBtn_Hatirlat.isSelected()) {
@@ -66,7 +77,7 @@ public class aes_GorevEkle extends AppCompatActivity {
         }
 
         try {
-            database.execSQL("INSERT INTO Gorevler (gorev,onemDerecesi,hatirlat) VALUES('" + gorev + "'," + onemDerecesi + "," + hatirlat + ")");
+            database.execSQL("INSERT INTO Gorevler (resim,gorev,onemDerecesi,hatirlat) VALUES('" + image + "','" + gorev + "'," + onemDerecesi + "," + hatirlat + ")");
             Toast.makeText(getApplicationContext(), "Veri başarıyla eklendi", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();

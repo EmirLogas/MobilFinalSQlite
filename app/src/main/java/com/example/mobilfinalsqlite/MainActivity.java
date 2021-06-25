@@ -37,14 +37,14 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             database = openOrCreateDatabase("Gorevler", MODE_PRIVATE, null);
-            database.execSQL("CREATE TABLE IF NOT EXISTS Gorevler (gorev VARCHAR, onemDerecesi INTEGER, hatirlat INTEGER)");
+            database.execSQL("CREATE TABLE IF NOT EXISTS Gorevler (resim VARCHAR,gorev VARCHAR, onemDerecesi INTEGER, hatirlat INTEGER)");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         Listele();
 
-        GorevListAdapter adapter = new GorevListAdapter(this,R.layout.listviewrow,gorevList);
+        GorevListAdapter adapter = new GorevListAdapter(this, R.layout.listviewrow, gorevList);
         aes_Main_ListView.setAdapter(adapter);
 
     }
@@ -55,21 +55,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Listele() {
-        try {
-            aes_GorevEkle.database = openOrCreateDatabase("Gorevler", MODE_PRIVATE, null);
-            aes_GorevEkle.database.execSQL("CREATE TABLE IF NOT EXISTS Gorevler (gorev VARCHAR, onemDerecesi INTEGER, hatirlat INTEGER)");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-        Cursor cursor = aes_GorevEkle.database.rawQuery("SELECT * FROM Gorevler", null);
+        Cursor cursor = database.rawQuery("SELECT * FROM Gorevler", null);
 
+        int resimIndex = cursor.getColumnIndex("resim");
         int gorevIndex = cursor.getColumnIndex("gorev");
         int onemDerecesiIndex = cursor.getColumnIndex("onemDerecesi");
         int hatirlatIndex = cursor.getColumnIndex("hatirlat");
 
         while (cursor.moveToNext()) {
-            Gorev gorev = new Gorev(cursor.getString(gorevIndex), cursor.getInt(onemDerecesiIndex), cursor.getInt(hatirlatIndex));
+            Gorev gorev = new Gorev(cursor.getString(resimIndex), cursor.getString(gorevIndex), cursor.getInt(onemDerecesiIndex), cursor.getInt(hatirlatIndex));
             gorevList.add(gorev);
         }
         cursor.close();
