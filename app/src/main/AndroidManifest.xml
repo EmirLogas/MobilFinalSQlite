@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobilFinalSQlite">
         <activity android:name=".aes_GorevEkle"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".aes_MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

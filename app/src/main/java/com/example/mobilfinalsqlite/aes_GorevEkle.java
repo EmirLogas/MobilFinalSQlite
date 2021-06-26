@@ -82,7 +82,7 @@ public class aes_GorevEkle extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Intent MainActivity = new Intent(this, MainActivity.class);
+        Intent MainActivity = new Intent(this, aes_MainActivity.class);
         startActivity(MainActivity);
     }
 
